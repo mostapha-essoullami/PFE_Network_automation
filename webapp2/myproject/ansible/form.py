@@ -3,7 +3,7 @@ from wtforms import SubmitField, StringField, TextAreaField
 from wtforms.validators import DataRequired
 
 class CreateForm(FlaskForm):
-    playname = StringField('PlayBook name')
+    playname = StringField('Name')
     ansibleplay= TextAreaField(validators=[DataRequired()])
     submit = SubmitField('Save')
 

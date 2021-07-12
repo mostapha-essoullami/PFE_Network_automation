@@ -70,7 +70,7 @@ def executecmd(device,cmds,mode):
         db.session.add(log)
         db.session.commit()
 
-        return {"hostname":device.hostname,"status":status,"mode":climode,"message":message,"output":output}
+        return {"hostname":device.hostname,"ip":device.ip,"status":status,"mode":climode,"message":message,"output":output}
 
 @command_blueprint.route('/sendcmd', methods=['GET', 'POST'])
 def sendcmd():
