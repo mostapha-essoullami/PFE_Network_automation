@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div id="layoutSidenav_content">
+  <main>
+    <br>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 mx-4 text-gray-800">Logs</h1>
+    
+</div>
+<div class="row">
+    <div class="col-xl-12 col-lg-7">
+       
+
+                <div class="card shadow mb-8">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>device</th>
+                              <th>device type</th>
+                              <th>mode</th>
+                              <th>time</th>
+                              <th>status</th>
+                              <th>Messages</th>
+                              <th>Command</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                              <th>device</th>
+                              <th>device type</th>
+                              <th>mode</th>
+                              <th>time</th>
+                              <th>status</th>
+                              <th>Message</th>
+                              <th>Command</th>
+                            </tr>
+                          </tfoot>
+                          <tbody>
+                              {% for log in logs %}
+                            <tr>
+                              <td>{{log.hostname_ip}}</td>
+                              <td>{{log.devicetype}}</td>
+                              <td>{{log.mode}}</td>
+                              <td>{{log.time}}</td>
+                              <td>{{log.status}}</td>
+                              <td>{{log.message}}</td>
+                              <td>{{log.command}}</td>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+                </div>
+           
+    </div>
+</div>
+  </main>
+</div>
+{% endblock %}
