@@ -1,0 +1,11 @@
+hostname {{hostname}}
+
+username {{username}} pass {{password}}
+username {{username}} priv 15
+line vty 0 4
+  login local
+  transport input all
+
+crypto key generate rsa general-keys label MYKEYNAME modulus 1024
+
+end
