@@ -1,3 +1,0 @@
-serial,hostname,username,password,ip,intf,intdscr,devicetype
-sdffr,Router1,esso,cisco,192.168.59.129,Ethernet1/0,connected,cisco_ios
-
