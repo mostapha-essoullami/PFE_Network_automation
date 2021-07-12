@@ -1,0 +1,67 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div id="layoutSidenav_content">
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">host_vars</h3></div>
+                        <div class="my-2"></div>
+                        {% for host in host_vars %}
+                        <div class="btn-success btn-icon-split">
+                          
+                                <span class="text col-md-6">{{host}}</span>
+                                
+                                <a href="{{ url_for('ansible.hostvaredit' ,file=host) }}"  >
+                                    <span class="icon text-white-50">
+                                    edit
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </a>
+                                &nbsp&nbsp
+                                <a href="{{ url_for('ansible.deletehostvar' ,file=host) }}"  >
+                                    <span class="icon text-white-50">
+                                        delete
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
+                          
+                        </div>
+                        <div class="my-2"></div>
+                        {% endfor %} 
+
+
+                   
+
+                    <div class="btn-primary btn-icon-split">
+                          
+                        <span class="text col-md-6">Add New host vars file</span>
+                        <a href="{{ url_for('ansible.addhostvar') }}"  >
+                            <span class="icon text-white-50">
+                            add
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </a>
+                        &nbsp&nbsp
+                     
+                  
+                    </div>
+                    <div class="my-2"></div>
+
+                        
+                    </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+
+
+
+
+</div>
+
+{%endblock%}

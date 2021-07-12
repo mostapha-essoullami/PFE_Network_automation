@@ -1,0 +1,11 @@
+hostname {{hostname}}
+
+username {{username}} pass {{password}}
+username {{username}} priv 15
+line vty 0 4
+  login local
+  transport input all
+
+interface {{ intf }}
+ description {{ intdscr }}
+ ip address {{ ip }} 255.255.255.0
