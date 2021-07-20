@@ -1,0 +1,13 @@
+default-lease-time 3600;
+max-lease-time 7200;
+authoritative;
+
+subnet 192.168.122.0 netmask 255.255.255.0 {
+range 192.168.122.100 192.168.122.220;
+option subnet-mask 255.255.255.0;
+option routers 192.168.122.2;
+option broadcast-address 192.168.122.255;
+option bootfile-name "ztp.py";
+option tftp-server-name "192.168.122.30";
+}
+#option bootfile-name "http://192.168.122.30/ztp.py";
