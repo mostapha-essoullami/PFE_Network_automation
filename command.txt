@@ -1,0 +1,8 @@
+apt-get update
+apt-get -y install python3-pip git tftpd-hpa 
+git clone https://github.com/mostapha-essoullami/PFE_Network_automation.git
+pip3 install -r PFE_Network_automation/requirements.txt 
+echo "TFTP_USERNAME='tftp'" > /etc/default/tftpd-hpa && echo "TFTP_DIRECTORY='/root/PFE_Network_automation/webapp/myproject/tftp'" >> /etc/default/tftpd-hpa \
+echo "TFTP_ADDRESS=':69'" >> /etc/default/tftpd-hpa && echo "TFTP_OPTIONS='--secure --create'" >> /etc/default/tftpd-hpa 
+service tftpd-hpa restart
+python3 PFE_Network_automation/webapp/app.py
