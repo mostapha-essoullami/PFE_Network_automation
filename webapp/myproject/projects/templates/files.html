@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div id="layoutSidenav_content">
+    <main>
+        <br>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 mx-4 text-gray-800">SubProjects of {{name}}</h1>
+        
+        <a href="{{url_for('projects.delete')}}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+                class="fas fa-times fa-sm text-white-50"></i> Delete this project</a>
+    </div>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">{{name}} : {{description}}</li>
+    </ol>
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <div class="card shadow mb-4">
+            <section id="Projects" class="p-5 bg-dark">
+                <div class="container">
+                  <h2 class="text-center text-white">SubProjects in </h2>
+                  <p class="lead text-center text-white mb-5">
+                    Create New or Continue on Existing SubProject, each subproject represent a part of the parent project
+                  </p>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-3 mb-3" >
+                        <div class="card bg-primary text-white" style="height: 14rem;">
+                          <div class="card-body text-center">
+                          
+                            <h5 class="card-title mb-3">New SubProject</h5>
+                            <p class="card-text">
+                                Create New SubProject
+                            </p>
+                           
+                
+                          </div>
+                          <div class="card-footer text-center">
+                            <a class="text-white stretched-link" href="{{ url_for('projects.createfolder') }}">Create</a>
+                          </div>
+                        </div>
+                      </div>
+
+
+     
+                        {% for  folder in folders %}
+                        <div class="col-md-6 col-lg-3 mb-3" >
+                            <div class="card bg-ligh" style="height: 14rem;">
+                              <div class="card-body text-center">
+                              
+                                <h5 class="card-title mb-3">{{folder.name}}</h5>
+                                <p class="card-text">
+                                    {{folder.description|truncate(80, True)}}
+                                </p>
+                               
+                    
+                              </div>
+                              <div class="card-footer text-center">
+                                <a class="stretched-link" href="{{ url_for('projects.viewfolder',id=folder.id) }}">Created at :{{folder.date.strftime('%Y-%m-%d')}}</a>
+                              </div>
+                            </div>
+                          </div>
+
+                        {% endfor %} 
+                    </div>
+                </div>
+            </div>
+                    </div>                     
+                
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+</div>
+{% endblock %}
