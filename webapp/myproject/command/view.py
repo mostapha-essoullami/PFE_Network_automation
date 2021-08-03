@@ -104,8 +104,11 @@ def sendcmd():
 
             num_threads=5
             threads = ThreadPool( num_threads )
-            commands=form.command.data.splitlines()
-            results = threads.map( executecmd,selected, repeat(commands),repeat(form.execmode.data) )
+            commands=[form.command.data.splitlines()]*len(selected)
+            mode=[form.execmode.data]*len(selected)
+            args=[*zip(selected,commands,mode)]
+            results = threads.map( executecmd, args )
+
 
             
             threads.close()
